@@ -23,6 +23,6 @@ objects in `App.vue` before being passed to the calendar to avoid runtime
 errors. The backend accepts the values in `yyyy-MM-dd'T'HH:mm` format with
 optional seconds.
 
-When submitting new events the values from the `datetime-local` fields are
-converted to ISO strings before being sent to the API so they never end up
-`null`.
+The add event dialog uses Vuetify's `VDateInput` component for the start and
+end fields. The selected values are converted to ISO strings before being sent
+to the API so they never end up `null`.
