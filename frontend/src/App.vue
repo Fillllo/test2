@@ -3,17 +3,17 @@
     <v-main>
       <v-container>
         <v-card>
-          <v-card-title>Team Calendar</v-card-title>
+          <v-card-title>
+            Team Calendar
+            <v-spacer></v-spacer>
+            <v-btn color="primary" @click="dialog=true">Add Event</v-btn>
+          </v-card-title>
           <v-card-text>
-            <v-data-table :items="events" :headers="headers" class="elevation-1">
-              <template #top>
-                <v-toolbar flat>
-                  <v-toolbar-title>Events</v-toolbar-title>
-                  <v-spacer></v-spacer>
-                  <v-btn color="primary" @click="dialog=true">Add</v-btn>
-                </v-toolbar>
-              </template>
-            </v-data-table>
+            <v-calendar
+              height="600"
+              :events="calendarEvents"
+              type="month"
+            />
 
             <v-dialog v-model="dialog" max-width="500px">
               <v-card>
@@ -44,16 +44,17 @@ import axios from 'axios';
 const events = ref([]);
 const dialog = ref(false);
 const form = ref({ title: '', startTime: '', endTime: '' });
-
-const headers = [
-  { title: 'Title', value: 'title' },
-  { title: 'Start', value: 'startTime' },
-  { title: 'End', value: 'endTime' }
-];
+const calendarEvents = ref([]);
 
 async function load() {
   const res = await axios.get('http://localhost:8080/api/events');
   events.value = res.data;
+  calendarEvents.value = events.value.map(e => ({
+    name: e.title,
+    start: e.startTime,
+    end: e.endTime,
+    color: 'primary'
+  }));
 }
 
 async function save() {
