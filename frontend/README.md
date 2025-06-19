@@ -10,3 +10,6 @@ Install dependencies and start the dev server:
 npm install
 npm run dev
 ```
+
+Vite is configured to process `.vue` files via `@vitejs/plugin-vue` (see
+`vite.config.js`).
