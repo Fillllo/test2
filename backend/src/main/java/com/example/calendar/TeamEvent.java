@@ -15,10 +15,12 @@ public class TeamEvent {
 
     private String title;
 
-    @com.fasterxml.jackson.annotation.JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm")
+    // Accept times with or without seconds from the frontend
+    @com.fasterxml.jackson.annotation.JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm[:ss]")
     private LocalDateTime startTime;
 
-    @com.fasterxml.jackson.annotation.JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm")
+    // Accept times with or without seconds from the frontend
+    @com.fasterxml.jackson.annotation.JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm[:ss]")
     private LocalDateTime endTime;
 
     public TeamEvent() {}

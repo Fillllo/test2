@@ -11,3 +11,6 @@ Spring Boot 3.5 REST API for team calendar events. Connects to PostgreSQL.
 ```bash
 mvn spring-boot:run
 ```
+
+The API expects event `startTime` and `endTime` values in
+`yyyy-MM-dd'T'HH:mm` format. Seconds may be provided as well.
