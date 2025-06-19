@@ -14,3 +14,6 @@ npm run dev
 
 Vite is configured to process `.vue` files via `@vitejs/plugin-vue` (see
 `vite.config.js`).
+
+The calendar uses Vuetify's `VCalendar` lab component which is registered
+manually in `src/main.js`.
