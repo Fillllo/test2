@@ -50,9 +50,9 @@ async function load() {
   const res = await axios.get('http://localhost:8080/api/events');
   events.value = res.data;
   calendarEvents.value = events.value.map(e => ({
-    name: e.title,
-    start: e.startTime,
-    end: e.endTime,
+    title: e.title,
+    start: new Date(e.startTime),
+    end: new Date(e.endTime),
     color: 'primary'
   }));
 }

@@ -17,3 +17,7 @@ Vite is configured to process `.vue` files via `@vitejs/plugin-vue` (see
 
 The calendar uses Vuetify's `VCalendar` lab component which is registered
 manually in `src/main.js`.
+
+Event start and end times from the backend are converted to JavaScript `Date`
+objects in `App.vue` before being passed to the calendar to avoid runtime
+errors.
