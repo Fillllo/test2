@@ -20,8 +20,8 @@
                 <v-card-title>Add Event</v-card-title>
                 <v-card-text>
                   <v-text-field label="Title" v-model="form.title"></v-text-field>
-                  <v-text-field label="Start" v-model="form.startTime"></v-text-field>
-                  <v-text-field label="End" v-model="form.endTime"></v-text-field>
+                  <v-text-field label="Start" v-model="form.startTime" type="datetime-local"></v-text-field>
+                  <v-text-field label="End" v-model="form.endTime" type="datetime-local"></v-text-field>
                 </v-card-text>
                 <v-card-actions>
                   <v-spacer></v-spacer>
