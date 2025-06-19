@@ -1,7 +1,7 @@
 # Frontend
 
 Vue 3 application using Vuetify to display team calendar events.
-The main page shows a monthly calendar highlighting days with events.
+The main page shows a monthly calendar where each day inside an event range is highlighted in blue.
 
 ## Running
 

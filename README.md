@@ -1,7 +1,7 @@
 # Team Calendar Application
 
 Example project with a Vue 3 + Vuetify frontend and a Spring Boot 3.5 backend using PostgreSQL.
-The frontend displays a monthly calendar where days with events are highlighted.
+The frontend displays a monthly calendar where days that fall inside an event are colored blue.
 
 ## Structure
 

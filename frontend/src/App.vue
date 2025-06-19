@@ -57,12 +57,24 @@ const calendarEvents = ref([]);
 async function load() {
   const res = await axios.get('http://localhost:8080/api/events');
   events.value = res.data;
-  calendarEvents.value = events.value.map(e => ({
-    title: e.title,
-    start: new Date(e.startTime),
-    end: new Date(e.endTime),
-    color: 'primary'
-  }));
+  calendarEvents.value = [];
+  events.value.forEach(e => {
+    const start = new Date(e.startTime);
+    const end = new Date(e.endTime);
+    const day = new Date(start);
+    day.setHours(0,0,0,0);
+    const endDay = new Date(end);
+    endDay.setHours(0,0,0,0);
+    for (let d = new Date(day); d <= endDay; d.setDate(d.getDate() + 1)) {
+      calendarEvents.value.push({
+        title: e.title,
+        start: new Date(d),
+        end: new Date(d),
+        color: 'blue',
+        allDay: true
+      });
+    }
+  });
 }
 
 async function save() {
