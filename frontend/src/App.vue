@@ -58,7 +58,16 @@ async function load() {
 }
 
 async function save() {
-  await axios.post('http://localhost:8080/api/events', form.value);
+  const payload = {
+    title: form.value.title,
+    startTime: form.value.startTime
+      ? new Date(form.value.startTime).toISOString().slice(0, 19)
+      : null,
+    endTime: form.value.endTime
+      ? new Date(form.value.endTime).toISOString().slice(0, 19)
+      : null,
+  };
+  await axios.post('http://localhost:8080/api/events', payload);
   dialog.value = false;
   form.value = { title: '', startTime: '', endTime: '' };
   load();
